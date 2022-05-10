@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erd - Color and Shades DB</title>
+    <style>
+        body
+        {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .modal
+        {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        .modal-content 
+        {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close
+        {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus
+        {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        td, th 
+        {
+            border: 1px solid black;
+            padding: 1rem;
+        }
+
+        th
+        {
+            color: white;
+            background-color: darkorchid;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Colors and Shades Database</h2>
+
+    <button id="theBtn">Open ERD</button>
+
+
+    <div id="theModal" class="modal">
+
+
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Colors and Shades ERD</h3>
+            <img src="img/erd_colorsDB.png" alt="ERD" width="300" height="200">
+
+            <h3>ERD kirjeldus</h3>
+                       <ul>
+                            <li>Andmebaas kasutab kahte tabelit. 
+                                Tabel nimega PrimaryColors ja Shades. 
+                                Mõlemal tabelil on esmased võtmed ID-d. Neil on ka
+                                nimeveerud ja Shades tabelis on välisvõtmena 
+                                PrimaryColorId</li>
+                            <li>Tabel annab kasutajal valida nelja põhivärvi ehk PrimaryColors vahel ja see näitab kahte selle põhivärviga seotud tooni ehk Shades.</li>
+                        </ul>
+
+         </div>
+
+    </div>
+    
+    <h4>Primary Colors</h4>
+    <table>
+        <tr>
+         <th>Id</th>
+         <th>PrimaryColorName</th>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>Red</td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>Blue</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Yellow</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Green</td>
+        </tr>
+    </table>
+    <h4>Shades</h4>
+    <table>
+        <tr>
+         <th>Id</th>
+         <th>PrimaryColorId</th>
+         <th>ColorName</th>
+
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>Azure</td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>3</td>
+            <td>Lemon</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>2</td>
+            <td>Cyan</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>1</td>
+            <td>Salmon pink</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>3</td>
+            <td>Mustard</td>
+            <tr>
+                <td>6</td>
+                <td>4</td>
+                <td>Honeydew</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>4</td>
+                <td>Jungle Green</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>1</td>
+                <td>Crimson</td>
+            </tr>
+        </tr>
+    </table>
+   
+   <script>
+
+        var modal = document.getElementById("theModal");
+
+
+        var btn = document.getElementById("theBtn");
+
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
